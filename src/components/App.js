@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IngredientSearchInput from './IngredientSearchInput';
 import SearchChoicesSection from './SearchChoicesSection';
+import NutritionalDataSection from './NutritionalDataSection';
 
 const App = () => {
     const [searchPhrase, setSearchPhrase] = useState();
     const [choices, setChoices] = useState();
+    const [currentChoice, setCurrentChoice] = useState();
 
     const handleSearch = e => {
         setSearchPhrase(e.target.value);
@@ -27,15 +29,26 @@ const App = () => {
             }
         })
         .then(res => {
-            console.log(res.data.common)
-            setChoices(res.data.common)
+            setChoices(res.data.common);
         })
     }, [searchPhrase]);
+
+    const handleChoice = e => {
+        const foodName = e.target.value;
+        if (foodName) {
+            for (const choice of choices) {
+                if (foodName === choice.food_name) {
+                    setCurrentChoice(choice)
+                }
+            }
+        }
+    };
 
     return (
         <React.Fragment>
             <IngredientSearchInput handleChange={handleSearch}/>
-            {choices && <SearchChoicesSection choices={choices}/>}
+            {choices && <SearchChoicesSection choices={choices} handleClick={handleChoice}/>}
+            {currentChoice && <NutritionalDataSection foodData={currentChoice}/>}
         </React.Fragment>
     )
 }
