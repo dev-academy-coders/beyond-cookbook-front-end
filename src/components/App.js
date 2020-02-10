@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import IngredientSearchInput from './IngredientSearchInput';
 import SearchChoicesSection from './SearchChoicesSection';
@@ -8,12 +8,15 @@ const App = () => {
     const [searchPhrase, setSearchPhrase] = useState();
     const [choices, setChoices] = useState();
     const [currentChoice, setCurrentChoice] = useState();
+    const isInitialMount = useRef(true);
 
     const handleSearch = e => {
         setSearchPhrase(e.target.value);
     }
 
     useEffect(() => {
+        isInitialMount.current ?
+        isInitialMount.current = false :
         axios({
             url: 'https://trackapi.nutritionix.com/v2/search/instant',
             headers: {
