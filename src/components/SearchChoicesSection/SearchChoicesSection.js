@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchChoiceButton from './SearchChoiceButton';
+import SearchChoiceButton from '../SearchChoiceButton/SearchChoiceButton';
 
 const SearchChoicesSection = props => {
     return (
