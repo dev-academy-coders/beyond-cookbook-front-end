@@ -1,8 +1,8 @@
 import RecipeAPI from '../apis/RecipeAPI'
 
-const UserLogged = user => (
+const UserLoggedIn = user => (
     {
-        type: 'USER_LOGGED_SUCCESS',
+        type: 'USER_LOGGING_IN_SUCCESSFUL',
         payload: user
     }
 );
@@ -10,5 +10,5 @@ const UserLogged = user => (
 export const fetchUser = () => async dispatch => {
     const response = await RecipeAPI.post()
     localStorage.setItem("token", response.jwt)
-    dispatch(UserLogged(/**/))
+    dispatch(UserLoggedIn(/**/))
 }
