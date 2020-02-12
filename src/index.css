@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Gabriola';
+  src: local('Gabriola'), url(./fonts/gabriola-font.ttf) format('truetype');
+}

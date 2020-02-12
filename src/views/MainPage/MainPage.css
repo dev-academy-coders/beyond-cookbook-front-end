@@ -6,19 +6,22 @@
   background-color: transparent;
   transition: color 0.3s;
 }
-
-.trigger:hover {
-  color: #1890ff;
-  background-color: transparent;
+.ant-menu-item:hover {
+  background-color: #c4bbba;
+  color: black;
 }
-
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #c4bbba;
+  color: black;
+}
 .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
+  height: 60px;
+  background-image: url(../../assets/logo.png);
+  background-repeat: no-repeat;
   margin: 16px;
 }
 #root {
-  background: url(../assets/background-main-page.jpg) no-repeat center center
+  background: url(../../assets/background-main-page.jpg) no-repeat center center
     fixed #000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
