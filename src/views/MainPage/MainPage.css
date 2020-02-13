@@ -1,0 +1,44 @@
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: color 0.3s;
+}
+.ant-menu-item:hover {
+  background-color: #c4bbba;
+  color: black;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #c4bbba;
+  color: black;
+}
+.logo {
+  height: 60px;
+  background-image: url(../../assets/logo.png);
+  background-repeat: no-repeat;
+  margin: 16px;
+}
+#root {
+  background: url(../../assets/background-main-page.jpg) no-repeat center center
+    fixed #000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.ant-layout {
+  background-color: transparent;
+}
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+  border: none;
+}
+.ant-menu-inline,
+.ant-menu-vertical,
+.ant-menu-vertical-left {
+  border: none;
+}
