@@ -4,7 +4,8 @@ import "./MainPage.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReactModal from "react-modal";
 import { Layout, Menu, Icon } from "antd";
-import MainPageDescriptionContent from '../../components/MainPageDescriptionContent';
+import MainPageDescriptionContent from '../../components/MainPageDescriptionContent/MainPageDescriptionContent';
+import NutritionSearchPage from "../../components/NutritionSearchPage/NutritionSearchPage";
 const { Header, Sider, Footer } = Layout;
 
 class SiderDemo extends React.Component {
@@ -109,6 +110,7 @@ class SiderDemo extends React.Component {
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={ MainPageDescriptionContent } />
+              <Route exact path="/nutrition_search" component={ NutritionSearchPage } />
             </Switch>
           </BrowserRouter>
           <Footer

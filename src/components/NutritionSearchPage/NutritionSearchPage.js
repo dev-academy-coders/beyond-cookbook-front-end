@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import IngredientSearchInput from "../../components/IngredientSearchInput/IngredientSearchInput";
-import SearchChoicesSection from "../../components/SearchChoicesSection/SearchChoicesSection";
-import NutritionalDataSection from "../../components/NutritionalDataSection/NutritionalDataSection";
+import IngredientSearchInput from "../IngredientSearchInput/IngredientSearchInput";
+import SearchChoicesSection from "../SearchChoicesSection/SearchChoicesSection";
+import NutritionalDataSection from "../NutritionalDataSection/NutritionalDataSection";
+import { Layout } from "antd";
+const { Content } = Layout;
 
 const NutritionSearchPage = () => {
   const [searchPhrase, setSearchPhrase] = useState();
@@ -47,13 +49,13 @@ const NutritionSearchPage = () => {
   };
 
   return (
-    <React.Fragment>
+    <Content>
       <IngredientSearchInput handleChange={handleSearch} />
       {choices && (
         <SearchChoicesSection choices={choices} handleClick={handleChoice} />
       )}
       {currentChoice && <NutritionalDataSection foodData={currentChoice} />}
-    </React.Fragment>
+    </Content>
   );
 };
 
