@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./NutritionSearchPage.css";
 import axios from "axios";
 import IngredientSearchInput from "../IngredientSearchInput/IngredientSearchInput";
 import SearchChoicesSection from "../SearchChoicesSection/SearchChoicesSection";
@@ -50,11 +51,13 @@ const NutritionSearchPage = () => {
 
   return (
     <Content>
-      <IngredientSearchInput handleChange={handleSearch} />
-      {choices && (
-        <SearchChoicesSection choices={choices} handleClick={handleChoice} />
-      )}
-      {currentChoice && <NutritionalDataSection foodData={currentChoice} />}
+      <section className="search-area">
+        <IngredientSearchInput handleChange={handleSearch} />
+        {choices && (
+          <SearchChoicesSection choices={choices} handleClick={handleChoice} />
+        )}
+        {currentChoice && <NutritionalDataSection foodData={currentChoice} />}
+      </section>
     </Content>
   );
 };

@@ -5,7 +5,7 @@ const NutritionalDataSection = props => {
     const nutrients = foodData.full_nutrients;
 
     return (
-        <section>
+        <section className="nutritional-facts">
             <h2>{foodData.food_name}</h2>
             <table>
                 <tbody>
