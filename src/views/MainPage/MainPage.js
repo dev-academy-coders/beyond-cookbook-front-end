@@ -1,12 +1,14 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./MainPage.css";
+import ReactModal from "react-modal";
 import { Layout, Menu, Icon } from "antd";
 const { Header, Sider, Content, Footer } = Layout;
 
 class SiderDemo extends React.Component {
   state = {
-    collapsed: false
+    collapsed: false,
+    showModal: false
   };
 
   toggle = () => {
@@ -15,9 +17,17 @@ class SiderDemo extends React.Component {
     });
   };
 
+  handleOpenModal = () => {
+    this.setState({ showModal: true });
+  };
+
+  handleCloseModal = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
     return (
-      <Layout style={{ height: "100vh" }}>
+      <Layout style={{ minHeight: "100vh" }}>
         <Sider
           trigger={null}
           collapsible
@@ -63,6 +73,7 @@ class SiderDemo extends React.Component {
             />
             <div style={{ position: "relative", float: "right" }}>
               <Icon
+                onClick={this.handleOpenModal}
                 type="login"
                 style={{
                   marginRight: "5px",
@@ -70,13 +81,23 @@ class SiderDemo extends React.Component {
                   color: "#0C5B97"
                 }}
               />
+
+              <ReactModal
+                isOpen={this.state.showModal}
+                contentLabel="Minimal Modal Example"
+              >
+                <button onClick={this.handleCloseModal}>Close Modal</button>
+              </ReactModal>
               <span
+                class="sign-in"
+                onClick={this.handleOpenModal}
                 style={{
                   float: "top",
                   position: "center",
                   marginRight: "10px",
                   fontSize: "22px",
-                  color: "#0C5B97"
+                  color: "#0C5B97",
+                  cursor: "pointer"
                 }}
               >
                 Sign In
@@ -119,7 +140,8 @@ class SiderDemo extends React.Component {
             style={{
               textAlign: "center",
               backgroundColor: "transparent",
-              fontSize: "13px"
+              fontSize: "13px",
+              height: "50px"
             }}
           >
             Beyond Cookbook ©2020 Created by Roma, Marceli, Filip
