@@ -4,8 +4,10 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'; 
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';  
-import App from './components/App';
+import Root from "./views/Root/Root";
 import reducers from './reducers';
+import "./fonts/gabriola-font.ttf";
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -16,7 +18,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store = {store}>
-        <App />
+        <Root />
     </Provider>,
     document.getElementById('root')
 );
