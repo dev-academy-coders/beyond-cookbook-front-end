@@ -39,3 +39,7 @@
 .nutritional-facts h2 {
     margin: 2vh auto;
 }
+
+.nutritional-facts td:first-child {
+    padding-right: 2vw;
+}
