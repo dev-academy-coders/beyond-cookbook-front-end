@@ -1,6 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import "./fonts/gabriola-font.ttf";
+import React from 'react';
+import './index.css';
+import { compose, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'; 
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';  
 import Root from "./views/Root/Root";
-ReactDOM.render(<Root />, document.getElementById("root"));
+import reducers from './reducers';
+import "./fonts/gabriola-font.ttf";
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+    reducers,
+    composeEnhancers(applyMiddleware(thunk))
+);
+
+ReactDOM.render(
+    <Provider store = {store}>
+        <Root />
+    </Provider>,
+    document.getElementById('root')
+);
