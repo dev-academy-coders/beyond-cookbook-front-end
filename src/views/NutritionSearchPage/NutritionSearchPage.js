@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import IngredientSearchInput from "../components/IngredientSearchInput/IngredientSearchInput";
-import SearchChoicesSection from "../components/SearchChoicesSection/SearchChoicesSection";
-import NutritionalDataSection from "../components/NutritionalDataSection/NutritionalDataSection";
+import IngredientSearchInput from "../../components/IngredientSearchInput/IngredientSearchInput";
+import SearchChoicesSection from "../../components/SearchChoicesSection/SearchChoicesSection";
+import NutritionalDataSection from "../../components/NutritionalDataSection/NutritionalDataSection";
 
-const App = () => {
+const NutritionSearchPage = () => {
   const [searchPhrase, setSearchPhrase] = useState();
   const [choices, setChoices] = useState();
   const [currentChoice, setCurrentChoice] = useState();
@@ -57,4 +57,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default NutritionSearchPage;
