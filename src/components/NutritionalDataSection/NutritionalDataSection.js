@@ -1,19 +1,28 @@
 import React from 'react';
 
 const NutritionalDataSection = props => {
-    const { foodData } = props;
+    const { foodData, utils } = props;
     const nutrients = foodData.full_nutrients;
+    nutrients.forEach(nutrient => {
+        for (const util of utils) {
+            if (nutrient.attr_id === util.attr_id) {
+                nutrient.name = util.usda_nutr_desc
+                nutrient.unit = util.unit
+                break
+            }
+        }
+    })
 
     return (
-        <section>
+        <section className="nutritional-facts">
             <h2>{foodData.food_name}</h2>
             <table>
                 <tbody>
                     {
                         nutrients.map(nutrient => {
                             return (<tr key={nutrient.attr_id}>
-                                <td>{nutrient.attr_id}</td>
-                                <td>{nutrient.value}</td>
+                                <td>{nutrient.name}</td>
+                                <td>{nutrient.value} {nutrient.unit}</td>
                             </tr>)
                         })
                     }

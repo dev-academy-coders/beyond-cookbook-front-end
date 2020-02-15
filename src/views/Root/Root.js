@@ -7,6 +7,7 @@ class Root extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={MainPage} />
+          <Route exact path="/nutrition_search" component={MainPage} />
         </Switch>
       </BrowserRouter>
     );
