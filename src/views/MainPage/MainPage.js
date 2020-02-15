@@ -1,14 +1,16 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./MainPage.css";
-import ReactModal from "react-modal";
+import ReactModalLogin from "react-modal-login";
 import { Layout, Menu, Icon } from "antd";
 const { Header, Sider, Content, Footer } = Layout;
 
 class SiderDemo extends React.Component {
   state = {
     collapsed: false,
-    showModal: false
+    showModal: false,
+    loading: false,
+    error: null
   };
 
   toggle = () => {
@@ -22,9 +24,29 @@ class SiderDemo extends React.Component {
   };
 
   handleCloseModal = () => {
-    this.setState({ showModal: false });
+    this.setState({ showModal: false, error: null });
   };
 
+  startLoading = () => {
+    this.setState({
+      loading: true
+    });
+  };
+
+  finishLoading = () => {
+    this.setState({
+      loading: false
+    });
+  };
+
+  onTabsChange = () => {
+    this.setState({
+      error: null
+    });
+  };
+  onLoginClick = () => {};
+  onRegisterClick = () => {};
+  onRecoverPassword = () => {};
   render() {
     return (
       <Layout style={{ minHeight: "100vh" }}>
@@ -82,12 +104,78 @@ class SiderDemo extends React.Component {
                 }}
               />
 
-              <ReactModal
-                isOpen={this.state.showModal}
-                contentLabel="Minimal Modal Example"
-              >
-                <button onClick={this.handleCloseModal}>Close Modal</button>
-              </ReactModal>
+              <ReactModalLogin
+                visible={this.state.showModal}
+                onCloseModal={this.handleCloseModal}
+                loading={this.state.loading}
+                error={this.state.error}
+                tabs={{
+                  onChange: this.onTabsChange
+                }}
+                loginError={{
+                  label: "Couldn't sign in, please try again."
+                }}
+                registerError={{
+                  label: "Couldn't sign up, please try again."
+                }}
+                startLoading={this.startLoading}
+                finishLoading={this.finishLoading}
+                form={{
+                  onLogin: this.onLoginClick,
+                  onRegister: this.onRegisterClick,
+                  onRecoverPassword: this.onRecoverPassword,
+                  loginBtn: {
+                    label: "SIGN IN"
+                    // buttonClass: "login-btn"
+                  },
+                  registerBtn: {
+                    label: "CREATE ACCOUNT"
+                    // buttonClass: "register-btn"
+                  },
+                  recoverPasswordAnchor: {
+                    label: "Forgot password?"
+                  },
+                  loginInputs: [
+                    {
+                      name: "Email",
+                      type: "email",
+                      id: "login",
+                      className: "form-control",
+                      placeholder: "Email"
+                    },
+                    {
+                      name: "Password",
+                      type: "password",
+                      id: "password",
+                      className: "form-control",
+                      placeholder: "Password"
+                    }
+                  ],
+                  registerInputs: [
+                    {
+                      name: "Full name",
+                      type: "text",
+                      id: "name",
+                      className: "form-control",
+                      placeholder: "Full name"
+                    },
+                    {
+                      name: "Email",
+                      type: "email",
+                      id: "login",
+                      className: "form-control",
+                      placeholder: "Email"
+                    },
+                    {
+                      name: "Password",
+                      type: "password",
+                      id: "password",
+                      className: "form-control",
+                      placeholder: "Password"
+                    }
+                  ]
+                }}
+              />
               <span
                 class="sign-in"
                 onClick={this.handleOpenModal}
