@@ -15,7 +15,7 @@ const NutritionalDataSection = props => {
 
     return (
         <section className="nutritional-facts">
-            <h2>{foodData.food_name}</h2>
+            <h2>{foodData.food_name}, {foodData.serving_qty} {foodData.serving_unit} ({foodData.serving_weight_grams} g)</h2>
             <table>
                 <tbody>
                     {
