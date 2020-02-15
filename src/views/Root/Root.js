@@ -8,6 +8,8 @@ class Root extends React.Component {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/nutrition_search" component={MainPage} />
+          <Route exact path="/profile" component={MainPage} />
+          <Route exact path="/profile/details" component={MainPage} />
         </Switch>
       </BrowserRouter>
     );
