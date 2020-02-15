@@ -6,6 +6,7 @@ import ReactModal from "react-modal";
 import { Layout, Menu, Icon } from "antd";
 import MainPageDescriptionContent from '../../components/MainPageDescriptionContent/MainPageDescriptionContent';
 import NutritionSearchPage from "../../components/NutritionSearchPage/NutritionSearchPage";
+import UserRecipesSection from "../../components/UserRecipesSection/UserRecipesSection";
 const { Header, Sider, Footer } = Layout;
 
 class SiderDemo extends React.Component {
@@ -111,6 +112,7 @@ class SiderDemo extends React.Component {
             <Switch>
               <Route exact path="/" component={ MainPageDescriptionContent } />
               <Route exact path="/nutrition_search" component={ NutritionSearchPage } />
+              <Route exact path="/profile" component={ UserRecipesSection } />
             </Switch>
           </BrowserRouter>
           <Footer
